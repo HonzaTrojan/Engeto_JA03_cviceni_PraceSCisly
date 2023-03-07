@@ -1,5 +1,6 @@
 package com.engeto.ifloop;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -28,6 +29,11 @@ public class Main {
      * Jakmile uživatel zadá záporné číslo, metoda skončí.
      */
     public static void readIntsFromInputAndPrintItUntilNegative() {
+        int input = 0;
+        while (input >= 0){
+            input = Support.safeReadInt();
+            System.out.println("You entered: " + input);
+        }
     }
 
     /**
@@ -37,7 +43,14 @@ public class Main {
      * @return Součet všech zadaných čísel (záporné číslo ukončující vstup není zahrnuto).
      */
     public static int sumAllInputUntilNegative() {
-        return 0;
+        int input = 0;
+        int sum = 0;
+        while (input >= 0){
+            input = Support.safeReadInt();
+            System.out.println("You entered: " + input);
+            if (input > 0) sum += input;
+        }
+        return sum;
     }
 
     /**
@@ -47,7 +60,14 @@ public class Main {
      * @return List načtených hodnot (záporná hodnota není zahrnuta v listu)
      */
     public static List<Integer> storeAllInputInArrayListUntilNegative() {
-        return null;
+        int input = 0;
+        List<Integer> inputList = new ArrayList<>();
+        while (input >= 0){
+            input = Support.safeReadInt();
+            System.out.println("You entered: " + input);
+            if (input >= 0) inputList.add(input);
+        }
+        return inputList;
     }
 
     /**
@@ -55,6 +75,7 @@ public class Main {
      * @param list List čísel, která se mají vypsat.
      */
     public static void printAllIntegersFromList(List<Integer> list) {
+        list.forEach(System.out::println);
     }
 
     /**
@@ -63,7 +84,11 @@ public class Main {
      * @return Součet všech čísel v listu.
      */
     public static Integer sumAllIntegersFromList(List<Integer> list) {
-        return null;
+        int result = 0;
+        for (Integer integer : list){
+            result += integer;
+        }
+        return result;
     }
     //endregion
 
@@ -74,6 +99,9 @@ public class Main {
      * @param limit Limit - vypsána budou pouze čísla z listu, která jsou menší než limit
      */
     public static void printIntegersUnderLimit(List<Integer> list, int limit) {
+        for (Integer integer : list){
+            if (integer < limit) System.out.println(integer);
+        }
     }
 
     /**
@@ -88,6 +116,15 @@ public class Main {
      * @param list Seznam čísel, která se mají vypsat.
      */
     public static void printIntegersWithReplace(List<Integer> list) {
+        for (Integer integer : list){
+        switch (integer){
+            case 1 : System.out.println("one"); break;
+            case 2 : System.out.println("two"); break;
+            case 3 : System.out.println("three"); break;
+            default : System.out.println(integer);
+        }
+
+        }
     }
     //endregion
 
